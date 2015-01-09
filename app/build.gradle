@@ -18,9 +18,9 @@ android {
 
     defaultConfig {
         applicationId "com.github.chemikadze.stravaheatmap.app"
-        minSdkVersion 10
-        targetSdkVersion 10
-        versionCode 1
+        minSdkVersion 9
+        targetSdkVersion 15
+        versionCode 4
         versionName "1.0"
     }
     buildTypes {
