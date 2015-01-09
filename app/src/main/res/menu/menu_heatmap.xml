@@ -2,40 +2,38 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".HeatmapActivity">
 
-      <group>
+      <item android:title="@string/action_color" android:showAsAction="always">
+            <menu>
+                  <item android:id="@+id/color_blue"
+                        android:title="@string/action_color_blue"
+                        android:showAsAction="collapseActionView"/>
 
-            <item android:id="@+id/color_blue"
-                  android:title="@string/action_color_blue"
-                  android:icon="@android:color/holo_blue_light"
-                  android:showAsAction="collapseActionView"/>
+                  <item android:id="@+id/color_red"
+                        android:title="@string/action_color_red"
+                        android:showAsAction="collapseActionView"/>
 
-            <item android:id="@+id/color_red"
-                  android:title="@string/action_color_red"
-                  android:icon="@android:color/holo_red_light"
-                  android:showAsAction="collapseActionView"/>
+                  <item android:id="@+id/color_yellow"
+                        android:title="@string/action_color_yellow"
+                        android:showAsAction="collapseActionView"/>
+            </menu>
+      </item>
 
-            <item android:id="@+id/color_yellow"
-                  android:title="@string/action_color_yellow"
-                  android:icon="@color/yellow"
-                  android:showAsAction="collapseActionView"/>
+      <item android:title="@string/action_type" android:showAsAction="always">
+            <menu>
 
-      </group>
+                  <item android:id="@+id/type_cycling"
+                        android:title="@string/action_type_cycling"
+                        android:showAsAction="collapseActionView"/>
 
-      <group>
+                  <item android:id="@+id/type_running"
+                        android:title="@string/action_type_running"
+                        android:showAsAction="collapseActionView"/>
 
-            <item android:id="@+id/type_cycling"
-                  android:title="@string/action_type_cycling"
-                  android:showAsAction="collapseActionView"/>
-
-            <item android:id="@+id/type_running"
-                  android:title="@string/action_type_running"
-                  android:showAsAction="collapseActionView"/>
-
-            <item android:id="@+id/type_both"
-                  android:title="@string/action_type_both"
-                  android:showAsAction="collapseActionView"/>
-
-      </group>
+                  <item android:id="@+id/type_both"
+                        android:title="@string/action_type_both"
+                        android:showAsAction="collapseActionView"/>
+            </menu>
+      </item>
 
 
 </menu>
