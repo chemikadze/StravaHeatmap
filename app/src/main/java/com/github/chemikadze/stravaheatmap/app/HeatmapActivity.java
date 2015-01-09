@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.gms.maps.model.TileProvider;
@@ -33,6 +34,10 @@ public class HeatmapActivity extends Activity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+        UiSettings settings = map.getUiSettings();
+        settings.setMyLocationButtonEnabled(true);
+        map.setMyLocationEnabled(true);
+        settings.setZoomControlsEnabled(true);
         recreateTileOverlay();
     }
 
