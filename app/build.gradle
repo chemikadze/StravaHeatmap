@@ -20,8 +20,8 @@ android {
         applicationId "com.github.chemikadze.stravaheatmap.app"
         minSdkVersion 11
         targetSdkVersion 15
-        versionCode 6
-        versionName "1.0"
+        versionCode 7
+        versionName "1.1"
     }
     buildTypes {
         release {

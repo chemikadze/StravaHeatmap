@@ -35,5 +35,23 @@
             </menu>
       </item>
 
+      <item android:title="@string/action_map" android:showAsAction="always">
+            <menu>
+
+                  <item android:id="@+id/map_normal"
+                        android:title="@string/action_map_normal"
+                        android:showAsAction="collapseActionView"/>
+
+                  <item android:id="@+id/map_satellite"
+                        android:title="@string/action_map_satellite"
+                        android:showAsAction="collapseActionView"/>
+
+                  <item android:id="@+id/map_terrain"
+                        android:title="@string/action_map_terrain"
+                        android:showAsAction="collapseActionView"/>
+
+            </menu>
+      </item>
+
 
 </menu>

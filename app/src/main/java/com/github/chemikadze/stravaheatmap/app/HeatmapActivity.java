@@ -22,13 +22,39 @@ public class HeatmapActivity extends Activity implements OnMapReadyCallback {
     private Color currentColor = Color.RED;
     private ActivityType currentType = ActivityType.BOTH;
     private GoogleMap map;
+    private int currentMapType = GoogleMap.MAP_TYPE_TERRAIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heatmap);
+        setTitle(R.string.title_heatmap);
         MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("activity_type", currentType.name());
+        outState.putString("map_color", currentColor.name());
+        if (map != null) {
+            outState.putInt("map_type", map.getMapType());
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.containsKey("map_color")) {
+            currentColor = Color.valueOf(savedInstanceState.getString("map_color"));
+        }
+        if (savedInstanceState.containsKey("activity_type")) {
+            currentType = ActivityType.valueOf(savedInstanceState.getString("activity_type"));
+        }
+        if (savedInstanceState.containsKey("map_type")) {
+            currentMapType = savedInstanceState.getInt("map_type");
+        }
     }
 
     @Override
@@ -68,6 +94,15 @@ public class HeatmapActivity extends Activity implements OnMapReadyCallback {
             case R.id.type_both:
                 currentType = ActivityType.BOTH;
                 break;
+            case R.id.map_normal:
+                currentMapType = GoogleMap.MAP_TYPE_NORMAL;
+                break;
+            case R.id.map_satellite:
+                currentMapType = GoogleMap.MAP_TYPE_SATELLITE;
+                break;
+            case R.id.map_terrain:
+                currentMapType = GoogleMap.MAP_TYPE_TERRAIN;
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -81,5 +116,6 @@ public class HeatmapActivity extends Activity implements OnMapReadyCallback {
         }
         TileProvider myTileProvider = new StravaOverlayProvider(currentType, currentColor);
         overlay = map.addTileOverlay(new TileOverlayOptions().tileProvider(myTileProvider));
+        map.setMapType(currentMapType);
     }
 }

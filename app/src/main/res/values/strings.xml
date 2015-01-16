@@ -11,5 +11,10 @@
     <string name="action_type_running">Running</string>
     <string name="action_type_both">Both</string>
     <string name="action_color_yellow">Yellow</string>
+    <string name="action_map">Map</string>
+    <string name="action_map_normal">Normal</string>
+    <string name="action_map_satellite">Satellite</string>
+    <string name="action_map_terrain">Terrain</string>
+    <string name="title_heatmap">Heatmap</string>
 
 </resources>
